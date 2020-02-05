@@ -36,7 +36,7 @@ On an SQL server, run the script "Mardom.sql" to generate the database with the 
 2)on line 10 is the connection to the MarDom database. Replace the name of the server, user and password with the name of the server and the credentials of the user where the database is located.
 3)Save the file.
 
-##Run the project
+### Run the project
 
 Open a console in the main folder and type:
 1)"dotnet restore",
@@ -45,7 +45,7 @@ Open a console in the main folder and type:
 
 To run in debug mode click in "Start debugging".
 
-##Login
+### Login
 
 For testing reasons, 2 users have been created in the database which can be accessed in the system. These users are:
 User: wandyrh@mardom.com 
@@ -56,7 +56,7 @@ Password: Password01
 
 Once logged into the system, the user can navigate in the different menus for inventory management.
 
-## Deployment
+### Deployment
 
 Open a console in the main folder and type:
 "dotnet restore",
@@ -75,7 +75,7 @@ When finish, go to \bin\Release\MarDom\win-x64\publish. The publish folder conta
 
 ## Authors
 
-* **Wandy Rodríguez** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Wandy Rodríguez** - *Initial work* - [inventory-management](https://github.com/Wandyrh/AngularCore3.1-inventory-management)
 
 
 
