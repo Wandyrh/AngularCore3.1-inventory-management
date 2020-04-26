@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using MarDom.Models;
 using MarDom.Models.Interfaces;
 using MarDom.Models.Repository;
+using System;
 
 namespace MarDom
 {
@@ -31,7 +32,19 @@ namespace MarDom
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddDbContext<MarDomContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MarDom"))); 
+            services.AddDbContext<MarDomContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("MarDom"),
+                sqlServerOptionsAction: sqlOption => 
+                {
+                    sqlOption.EnableRetryOnFailure(
+                        maxRetryCount: 10,
+                        maxRetryDelay: TimeSpan.FromSeconds(30),
+                        errorNumbersToAdd: null
+
+                    );
+                });
+            }); 
 
             //Inyections
             services.AddTransient<IGoodsMovements, GoodsMovementsRepository>();
